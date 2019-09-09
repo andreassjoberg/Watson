@@ -20,6 +20,12 @@ from .frames import Frames
 from .utils import deduplicate, make_json_writer, safe_save, sorted_groupby
 from .version import version as __version__  # noqa
 
+# ignore arrow warning https://github.com/crsmithdev/arrow/issues/612
+import warnings
+from arrow.factory import ArrowParseWarning
+warnings.simplefilter("ignore", ArrowParseWarning)
+# ignore arrow warning -- end
+
 
 class WatsonError(RuntimeError):
     pass
